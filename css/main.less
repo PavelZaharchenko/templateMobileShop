@@ -1,0 +1,315 @@
+main {
+	height: 800px;
+	background: linear-gradient(to bottom, #FFEBEB, @colorWhite);
+	font-size: 0;
+// Сайтбар
+	.categories{
+
+		// padding-top: 30px;
+		width: 25%;
+		// width: 200px;
+		height: 332px;
+		float: left;
+		padding-top: 30px;
+		h1{
+			height: 50px;
+			padding: 15px 20px;
+			text-transform: uppercase;
+			background-color: @colorGreen;
+			.tb-radius(@borderRadius);
+			color: @colorWhite;
+			// padding: 15px;
+			font-size: @basicFotntSize;
+		}
+		ul{
+			border: solid 1px @colorBorder;
+			li{
+				width: 100%;
+				height: 50px;
+				background-color: @colorWhite;
+				&:not(:last-child) {
+					border-bottom: solid 1px @colorBorder;
+				}
+				&:hover{
+					box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.51);
+				}
+				a{
+					line-height: 3.5;
+					font-size: @basicFotntSize;
+					text-decoration: none;
+					color: @colorBlack;
+					margin-left: 30px;
+					position: relative;
+					&:before{
+							content: '';
+							width: 5px;
+							height: 5px;
+							border-radius: 50%; 
+							position: absolute;
+						    left: -20px;
+    						top: 5px;
+							background-color: @colorBorder;
+					}
+				}
+			}
+		}
+	}
+// Второй блок сайтбар с телефонами
+	    .wats-hot{
+	    	margin-top: 30px;
+	    	.hot{
+	    		height: 80px;
+	    		p{
+	    			margin-left: 50px;
+	    			font-size: @basicFotntSize;
+	    			span{
+	    				color: @colorYellow;
+	    			}
+	    		}
+	    		.wats{
+	    			margin-left: 50px;
+	    			position: relative;
+
+	    			&:before{
+	    				content: '';
+	    				width: 32px;
+	    				height: 60px;
+	    				border-radius: 0%; 
+	    				position: absolute;
+	    				left: -40px;
+    					top: -5px;
+	    				background-image: url(imgs/storm-small.png)
+	    			}
+	    		}
+	    	}
+		}
+// Меню 
+	.phone-box {
+		.tb-radius(@borderRadius);
+		margin-top: 30px;
+		width: 70%;
+		height: 332px;
+		float: right;
+		nav {
+			background-color: @colorGreen;
+    		height: 50px;
+    		.tb-radius(@borderRadius);
+    		
+    		li {
+    			display:inline; 
+    			text-transform:uppercase;
+	    	    padding: 16px 20px;
+    			line-height: 50px;	
+    			height: 50px;		
+    			vertical-align: top;
+				cursor: pointer;
+				font-size: @basicFotntSize;
+				// position: relative;
+					&:not(:first-child) {
+						border-left: 1px solid darken(@colorGreen, 5%);
+					}
+					&:not(:last-child) {
+						border-right: 1px solid lighten(@colorGreen, 5%);
+					}
+					&:hover{
+						background-color: @colorYellow;
+						&:first-child {
+							border-top-left-radius: 12px;
+							border-right: 1px solid (@colorYellow);
+						}
+						&:last-child{
+							border-right: 1px solid (@colorYellow);
+						}
+					}
+				a {
+					color: @colorWhite;
+					text-decoration: none;
+				}
+    		}
+    	}
+// Блок с 3 телефонами 
+    		.phone-block {
+    			// почему не работают функции флекса
+    			display: flex;
+    			justify-content: space-around;
+    			height: 55%;
+    			border: solid 1px @colorBorder;
+    			background-color: @colorWhite;
+				// box-shadow: inset 0px -4px 10px 0px rgba(0,0,0,0.51);
+    			.phone {
+    				margin-top: 40px;
+    				width: 126px;
+    				height: 130px;
+    			}
+    			.pic1 {
+    				background-image: url(imgs/1.png);
+    				}
+				.pic2 {
+					background-image: url(imgs/2.png);
+				}
+				.pic3 {
+					background-image: url(imgs/3.png);
+				}
+    		}
+    	.description{
+    		height: 130px;
+    		background-color: @colorBorder;
+    		font-size: @basicFotntSize;
+    		display: flex;
+    		justify-content: space-around;
+    		border-top: solid 1px @colorWhite;
+    		box-shadow: 0px -11px 69px 0px rgba(209,207,207,1);
+    			h1,a{
+				margin-top: 20px;
+			    margin-right: 20px;
+			    margin-left: 20px;
+			    line-height: 2;
+    		}
+    		a{
+    			text-align: center;
+			    text-decoration: none;
+			    color: @colorWhite;
+			    background-color: @colorBlue;
+			    padding: 5px 5px 5px 30px;
+			    border: 1px solid darken(@colorBlue, 10%); 
+			    position: relative;
+			    &:before{
+						content: '';
+						width: 22px;
+						height: 20px;
+						position: absolute;
+					    top: 4px;
+					    left: 0px;
+						background-image: url(imgs/button-p.png);
+						// border: 1px solid darken(@colorBlue, 10%); 
+				}
+				&:hover{
+					 border: 1px solid darken(@colorYellow, 10%); 
+					 background-color: @colorYellow;
+				}
+    		}
+    		ul{
+    			display: flex;
+    			justify-content: space-around;
+    			margin-top: 25px;
+    			.button{
+					width: 15px;
+					height: 15px;
+					border-radius: 50%;
+					background: @colorYellow;
+					cursor: pointer;
+					border: 1px solid darken(@colorYellow, 10%); 
+					&:hover{
+						background-color: @colorBlue;
+						border: 1px solid darken(@colorBlue, 10%); 
+					}
+				}
+			}
+    	}
+    	.featur{
+    		margin: 20px 0px 20px 0px; 
+    		height: 50px;
+    		width: 100%;
+    		line-height: 45px;
+    		background-color: @colorGreen;
+    		.tb-radius(@borderRadius);
+    		.bb-radius(@borderRadius);
+    		display: flex;
+    		justify-content: space-between;
+    		h1{
+    			font-size: @basicFotntSize;
+    			text-transform: uppercase;
+    			color: @colorWhite;
+    			margin-left: 20px;
+
+    		}
+    		.pagination{
+    			font-size: @basicFotntSize;
+    			ul{
+    				display: flex;
+    				justify-content: space-around;
+    				margin-right: 20px;
+    				a{
+    					color: @colorWhite;
+    					text-decoration: none;
+    					margin-right: 10px;
+    					.active{
+    						color: @colorYellow;
+    					}
+    				}
+    			}
+    		}
+    	}
+	}
+// 6 одинаковых блоков с телефонами
+	.phones{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.phone{
+			width: 30%;
+			height: 237px;
+			margin-bottom: 10px;
+		}
+		.droid1{
+			border: 1px solid darken(@colorBorder, 10%); 
+			.imgs-phone{
+				background-image: url(imgs/1.png);
+				width: 126px;
+			    height: 130px;
+			    margin-left: 37px;
+			    margin-top: 10px;
+			    margin-bottom: 10px;
+				// display: flex;
+				// justify-content: space-around;
+			}
+	      	.descript{
+	    		width: 100%;
+	    		height: 85px;
+	    		background-color: @colorBorder;
+	    		font-size: @basicFotntSize;
+	    		display: flex;
+	    		justify-content: space-around;
+	    		flex-wrap: wrap;
+	    		border-top: solid 1px @colorWhite;
+	    		box-shadow: 0px -11px 69px 0px rgba(209,207,207,1);
+	    			h1 {
+						margin-top: 5px;
+					    margin-right: 20px;
+					    margin-left: 20px;
+					    line-height: 2;
+	    			}
+	    			a {
+		    			margin-right: 20px;
+					    margin-left: 20px;
+		    			color: @colorYellow;
+		    			text-decoration: none;
+		    			span {
+		    				margin-left: 5px;
+			    			text-align: center;
+						    text-decoration: none;
+						    color: @colorWhite;
+						    background-color: @colorBlue;
+						    padding: 5px 5px 5px 30px;
+						    border: 1px solid darken(@colorBlue, 10%); 
+						    position: relative;
+						    &:before {
+								content: '';
+								width: 22px;
+								height: 20px;
+								position: absolute;
+							    top: 4px;
+							    left: 0px;
+								background-image: url(imgs/button-p.png);
+							}
+							&:hover{
+								border: 1px solid darken(@colorYellow, 10%); 
+								background-color: @colorYellow;
+							}
+						}
+					}
+				}
+		}
+	}
+}

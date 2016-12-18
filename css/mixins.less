@@ -1,0 +1,56 @@
+// переменные:
+@colorWhite: #FFF;
+@colorBlack: #000;
+@colorGreen: #007d7b;
+@colorYellow: #f2b025;
+@colorBlue: #30a2d7;
+@colorBorder: #D1CFCF;
+
+@colorLogo: #383838;
+
+@containerWidth: 960px;
+@borderRadius: 12px;
+
+@basicFotntSize: 14px;
+@basicTitleSize: 20px;
+
+* {
+	box-sizing: border-box;
+}
+.container {
+	width: @containerWidth;
+	margin: auto;
+	font-family: verdana, arial, helvetica, sans-serif;
+}
+
+.tb-radius(@radius) {
+	border-top-left-radius: @radius;
+	border-top-right-radius: @radius;
+}
+
+.bb-radius(@radius) {
+	border-bottom-left-radius: @radius;
+	border-bottom-right-radius: @radius;
+}
+
+.title-style {
+	background-color: @colorGreen;
+	// .title-item {
+		text-transform: uppercase;
+		color: @colorWhite;
+	// }
+}
+.flex-between {
+	display: flex;
+	justify-content: space-between;
+}
+// как правильно прописать общий стиль ?
+// .phone(@before){
+// 	content: '';
+// 	width: 42px;
+// 	height: 80px;
+// 	position: absolute;
+//     top: -20px;
+// 	left: -50px;
+// 	display: block;
+// }

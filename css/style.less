@@ -1,0 +1,738 @@
+@import url(mixins.less);
+// @import url(header.less);
+
+*{
+	transition: all .3s;
+}
+// Шапка
+header {
+	height: 573px;
+	background-image: url(imgs/header.png);
+	font-size: 0;
+	border-bottom: solid 1px @colorBorder;
+
+	li{
+		display: inline-block;
+	}
+	.top-header-box {
+		padding: 80px 0 20px 20px;
+		display: flex;
+		justify-content: space-between;
+		fsalign-items: center;
+	}
+	.logo {
+		font-size: @basicTitleSize+10;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: @colorWhite;
+		span {
+			color: @colorLogo;
+			margin-right: 10px;
+		}
+	}
+	.menu {
+		text-align: right;
+		width: 55%;
+	}
+	.shopping-cart {
+		font-size: @basicFotntSize+3;
+		text-transform: uppercase;
+		margin-bottom: 10px;
+		text-decoration: none;
+		color: @colorWhite;
+		position: relative;
+		padding-left: 40px;
+		display: inline-block;
+		&:not(:last-child) {
+			margin-right: 10px;
+		}
+		&:before {
+			content: '';
+			display: block;
+			width: 32px;
+			height: 30px;
+			background: url(imgs/link-icon.png) center no-repeat;
+			position: absolute;
+			top: -10px;
+			left: 0;
+		}
+		span {
+			color: @colorLogo;
+			position: relative;
+		}
+	}
+	.bread-crumb {
+		display: inline-block;
+		margin-right: 20px;
+		font-size: @basicFotntSize;
+		li {
+			&:not(:last-child) {
+				margin-right: 5px;
+			}
+			&:not(:first-child) a:before {
+				content: '/';
+				margin-right: 5px;
+			}
+			&:hover a {
+				color: @colorBlue;
+			}
+		}
+		a{
+			color: @colorGreen;
+			text-decoration: none;
+		}
+	}
+	.header-button-box {
+		display: inline-block;
+		margin-top: 10px;
+		a {
+			font-size: @basicFotntSize;
+			display: inline-block;
+			width: 84px;
+			height: 26px;
+			line-height: 26px;
+			text-align: center;
+			.tb-radius(@borderRadius);
+			.bb-radius(@borderRadius);
+			background-color: @colorBlue;
+			text-decoration: none;
+			color: white;
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+			&:hover {
+				background-color: @colorYellow;
+			}
+		}
+	}
+
+	nav {
+		align-items: center;
+		height: 76px;
+		overflow: hidden;
+		.flex-between;
+		.title-style;
+		.tb-radius(@borderRadius);
+		li {
+			padding: 0 20px;
+			height: 76px;
+			line-height: 76px;
+			vertical-align: top;
+			cursor: pointer;
+			position: relative;
+			&:not(:first-child) {
+				border-left: 1px solid darken(@colorGreen, 5%);
+			}
+			&:not(:last-child) {
+				border-right: 1px solid lighten(@colorGreen, 5%);
+			}
+			&:first-child {
+				background: url(imgs/home.png) center no-repeat;
+				padding: 0 35px;
+			}
+			&:before {
+				content: '';
+				width: 16px;
+				height: 16px;
+				background: @colorWhite;
+				transform: rotate(45deg);
+				position: absolute;
+				bottom: -8px;
+				left: 50%;
+				margin-left: -8px;
+				display: none;
+			}
+			&:hover{
+				&:before {
+					display: block;
+				} 
+			}
+		}
+		a {
+			text-decoration: none;
+			font-size: @basicFotntSize+4;
+			color: @colorWhite;
+		}
+	}
+	.search {
+		margin-right: 15px;
+		position: relative;
+		&:before {
+			content: '';
+			width: 16px;
+			height: 16px;
+			position: absolute;
+			top: 3px;
+			left: 5px;
+			display: block;
+			background: url(imgs/search.png);
+		}
+		input {
+			.tb-radius(@borderRadius);
+			.bb-radius(@borderRadius);
+			border: none;
+			height: 22px;
+			width: 180px;
+			padding-left: 26px;
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+	// Слайдер
+	.slider {
+		display: flex;
+		justify-content: flex-start;
+		width: 100%;
+		box-shadow: 0px 0px 29px 1px rgba(0,0,0,0.5);
+		.slide {
+			padding-top: 10px;
+		    width: 65%;
+		    height: 335px;
+		    font-size: @basicFotntSize;
+		    background-image: url(imgs/sony.png);
+		    position: relative;
+		    z-index: 2;
+		}
+	    .title {
+	    	width: 550px;
+	    	padding: 20px;
+	    	background: linear-gradient(to right, lighten(@colorGreen, 65%), @colorWhite);
+	    	h1 {
+	    		font-size: @basicTitleSize+10;
+	    	}
+	    	p {
+	    		padding-top: 10px;
+	    		font-size: @basicFotntSize;
+	    	}
+	    }
+	    .price {
+	    	padding: 10px 20px; 
+	    	font-size: @basicTitleSize+10;
+	    	line-height: 1.5;
+	    	color: @colorYellow;
+	    }
+	    .view {
+	    	font-size: @basicFotntSize;
+	    	text-decoration: none;
+	    	color:@colorWhite;
+	    	background-color: @colorYellow;
+	    	padding: 10px;
+	    	border: 1px solid darken(@colorYellow, 10%);
+	    	&:hover {
+	    		background-color: @colorBlue;
+	    		border: 1px solid darken(@colorBlue, 10%);
+	    	}
+	    }
+	    .selection {
+			border-right: 1px solid #A8A8A8;
+			width: 35%;
+			// position: relative;
+			// z-index: 1;
+		    ul {
+		    	width: 100%;
+	    		margin: auto;
+	    	}
+	    	.phone-select {
+    			width: 100%;
+   				height: 111px;
+   				position: relative;
+   				border-left: 1px solid #A8A8A8;
+    			&:not(:last-child) {
+					border-bottom: 1px solid #A8A8A8;
+				}
+				// Не понимаю почему не работает бефор при наведении на каждый ЛИ
+				&:before,
+				&:after {
+					box-sizing: border-box;
+					content: '';
+					width: 16px;
+					height: 16px;
+					background: @colorWhite;
+					transform: rotate(45deg);
+					position: absolute;
+					display: none;
+					top: 50%;
+					margin-top: -8px;
+				}
+				&:before {
+					border: 1px solid #A8A8A8;
+					left: -8px;
+				}
+				&:after {
+					left: -9px;
+				}
+				&:hover{
+					background-color: @colorWhite;
+					&:after,
+					&:before {
+						display: block;
+					}
+				} 
+			}
+			h1 {
+		    	font-size: @basicTitleSize;
+		    	text-transform: uppercase;
+		    	position: relative;
+		    	margin-left: 100px;
+				margin-top: 30px;
+				&:before {
+					content: '';
+					width: 42px;
+					height: 80px;
+					position: absolute;
+				    top: -20px;
+					left: -50px;
+					display: block;
+					background: center no-repeat;
+				}
+		   	}
+	   		.phone1 {
+	   			&:before {
+					background-image: url(imgs/droid-inc.png);
+				}
+	   		}
+	   		.phone2 {
+	   			&:before {
+					background-image: url(imgs/droid-eris.png);
+				}
+			}
+	   		.phone3 {
+	   			&:before {
+					background-image: url(imgs/storm.png);
+				}
+			}
+			a {
+				margin-left: 100px;
+				text-decoration: none;
+				text-transform: none;
+				font-size:@basicFotntSize;
+				color: @colorBlack;
+			}
+		}
+	}
+}
+// Секция с телефонами
+main {
+	background: linear-gradient(to bottom, #FFEBEB, @colorWhite);
+	font-size: 0;
+	padding: 30px 0;
+	.kase{
+		box-sizing: border-box;
+		display: inline-block;
+		margin-top: 10px;
+		text-align: center;
+	    text-decoration: none;
+	    color: @colorWhite;
+	    background-color: @colorBlue;
+	    border: 1px solid darken(@colorBlue, 10%); 
+	    line-height: 30px;
+	    padding: 0 10px 0 0;
+	    vertical-align: top;
+	    &:before{
+			content: '';
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			border-right: 1px solid darken(@colorBlue, 10%);
+			background: url(imgs/button-p.png) center no-repeat; 
+			vertical-align: top;
+			margin-right: 10px;
+		}
+		&:hover{
+			 // border: 1px solid darken(@colorYellow, 10%); 
+			 background-color: @colorYellow;
+		}
+	}
+	.container {
+		display: flex;
+		justify-content: space-between;
+	}
+	aside {
+		width: 25%;
+		.aside-title {
+			height: 50px;
+			line-height: 50px;
+			padding: 0 20px;
+			color: @colorWhite;
+			font-size: @basicFotntSize;
+			.title-style;
+			.tb-radius(@borderRadius);
+		}
+		ul {
+			border: solid 1px @colorBorder;
+			li {
+				background-color: @colorWhite;
+				cursor: pointer;
+				&:not(:last-child) {
+					border-bottom: solid 1px @colorBorder;
+				}
+				&:hover {
+					box-shadow: inset 0px 0px 25px 0px rgba(0,0,0,0.42);
+				}
+			}
+			a {
+				text-decoration: none;
+				font-size: @basicFotntSize;
+				color: @colorBlack;
+			}
+		}
+		.categories {
+			margin-bottom: 30px;
+			li {
+				height: 50px;
+				line-height: 50px;
+				padding-left: 40px;
+			}
+			a {
+				position: relative;
+				&:before {
+					content: '';
+					width: 6px;
+					height: 6px;
+					border-radius: 50%; 
+					position: absolute;
+					left: -25px;
+					top: 50%;
+					margin-top: -3px;
+					background-color: @colorBorder;
+				}
+			}
+		}
+		.wats-hot {
+			li {
+				padding: 10px;
+				display: flex;
+			}
+			.phone-pic {
+				width: 32px;
+				height: 60px;
+				background-image: url(imgs/storm-small.png);
+				margin-right: 20px;
+			}
+			a{
+				display: inline-block;
+				padding-bottom: 10px;
+			}
+			span{
+				font-size: @basicFotntSize;
+			}
+			.sale-price {
+				color: @colorYellow;
+				margin-right: 10px;
+			}
+		}
+	}
+	// Меню 
+	.content {
+		width: 70%;
+	}
+	.deal-of-day {
+		menu {
+			height: 50px;
+			.title-style;
+			.tb-radius(@borderRadius);
+			li {
+				display: inline-block;
+				line-height: 50px;
+				padding: 0 20px; 				
+				cursor: pointer;
+				font-size: @basicFotntSize;
+				&:not(:first-child) {
+					border-left: 1px solid darken(@colorGreen, 5%);
+				}
+				&:not(:last-child) {
+					border-right: 1px solid lighten(@colorGreen, 5%);
+				}
+				&:hover{
+					background-color: @colorYellow;
+					&:first-child {
+						border-top-left-radius: 12px;
+						border-right: 1px solid (@colorYellow);
+					}
+					&:last-child{
+						border-right: 1px solid (@colorYellow);
+					}
+				}
+				a {
+					color: @colorWhite;
+					text-decoration: none;
+				}
+    		}
+    	}
+    	// Блок с 3 телефонами 
+		.phone-wrapper {
+			border: solid 1px @colorBorder;
+			background-color: @colorWhite;
+			.phone-box {
+				font-size: @basicFotntSize;
+				display: inline-block;
+				width: 33.333%;
+				padding-top: 20px;
+				.phone {
+					width: 130px;
+					height: 130px;
+					margin: auto;
+					background: center no-repeat;
+				}
+				&:first-child .phone {
+					background-image: url(imgs/1.png);
+				}
+				&:nth-child(2) .phone{
+					background-image: url(imgs/2.png);
+				}
+				&:nth-child(3) .phone{
+					background-image: url(imgs/3.png);
+				}
+			}
+			.description {
+				background-color: lighten(@colorBorder, 10%);
+				border-top: solid 1px @colorWhite;
+				text-align: center;
+				padding: 20px 0;
+			}
+			ul{
+				text-align: center;
+				padding: 10px 0;
+				background-color: lighten(@colorBorder, 10%);
+				.button {
+					display: inline-block;
+					width: 15px;
+					height: 15px;
+					border-radius: 50%;
+					background: @colorYellow;
+					cursor: pointer;
+					border: 1px solid @colorWhite; 
+					&:not(:last-child) {
+						margin-right: 10px;
+					}
+					&:hover{
+						background-color: darken(@colorYellow, 15%); 
+					}
+				}
+				.button.active {
+					background-color: lighten(@colorYellow, 20%); 
+				}
+			}
+		}
+	}
+	.featur {
+		margin: 20px 0px 20px 0px; 
+		height: 50px;
+		width: 100%;
+		line-height: 45px;
+		background-color: @colorGreen;
+		.tb-radius(@borderRadius);
+		.bb-radius(@borderRadius);
+		display: flex;
+		justify-content: space-between;
+		h1{
+			font-size: @basicFotntSize;
+			text-transform: uppercase;
+			color: @colorWhite;
+			padding: 4px 20px;
+		}
+		.pagination{
+			font-size: @basicFotntSize;
+			ul{
+				display: flex;
+				justify-content: space-around;
+				padding: 4px 20px;
+				a{
+					color: @colorWhite;
+					text-decoration: none;
+					margin-right: 10px;
+				}
+				.currentpage{
+					color: @colorYellow !important;
+					font-weight: bold;
+					cursor: default;
+				}
+			}
+		}
+	}
+	.phones{
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		.phone{
+			width: 30%;
+			height: 237px;
+			margin-bottom: 10px;
+		}
+		.droid1{
+			border: 1px solid darken(@colorBorder, 10%); 
+			margin-bottom: 30px;
+			.imgs-phone{
+				background-image: url(imgs/1.png);
+				width: 126px;
+			    height: 130px;
+			    margin-left: 37px;
+			    margin-top: 10px;
+			    margin-bottom: 10px;
+			}
+	      	.descript{
+	    		width: 100%;
+	    		height: 85px;
+	    		background-color: lighten(@colorBorder, 10%);
+	    		font-size: @basicFotntSize;
+	    		display: flex;
+	    		justify-content: space-around;
+	    		flex-wrap: wrap;
+	    		border-top: solid 1px @colorWhite;
+	    		// box-shadow: 0px -11px 69px 0px rgba(209,207,207,1);
+	    			h1{
+					margin-top: 5px;
+				    margin-right: 20px;
+				    margin-left: 20px;
+				    line-height: 2;
+	    			}
+	    			a{
+	    				line-height: 10px;
+		    			margin-right: 20px;
+					    margin-left: 20px;
+		    			color: @colorYellow;
+		    			text-decoration: none;
+		    			span{
+		    				margin-left: 10px;
+				    		box-sizing: border-box;
+							display: inline-block;
+							margin-top: 10px;
+							text-align: center;
+						    text-decoration: none;
+						    color: @colorWhite;
+						    background-color: @colorBlue;
+						    border: 1px solid darken(@colorBlue, 10%); 
+						    line-height: 30px;
+						    padding: 0 10px 0 0;
+						    &:before{
+								content: '';
+								display: inline-block;
+								width: 30px;
+								height: 30px;
+								border-right: 1px solid darken(@colorBlue, 10%);
+								background: url(imgs/button-p.png) center no-repeat; 
+								vertical-align: top;
+								margin-right: 10px;
+							}
+							&:hover{
+								 // border: 1px solid darken(@colorYellow, 10%); 
+								 background-color: @colorYellow;
+							}
+						}
+					}
+				}
+			}
+		}
+}	
+// Подвал
+footer{
+	height: 356px;
+	background-image: url(imgs/footer.png);
+	font-size: 0;
+	padding-top: 30px;
+	.container{
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.title{
+		color: @colorYellow;
+		font-size: @basicFotntSize;
+		text-transform: uppercase;
+		padding-bottom: 10px;
+	}
+	a{
+		text-decoration: none;
+		line-height: 1.5;
+		color: @colorWhite;
+		font-size: @basicFotntSize;
+	}
+	.news{
+		margin-top: 30px;
+		width: 25%;
+		border-right: 1px solid darken(#cafffe, 10%);
+		p{
+			color: @colorWhite;
+			font-size: @basicFotntSize - 2%;
+			line-height: 1.5;
+			padding-bottom: 10px;
+		}
+		.register{
+			margin-bottom: 20px;
+		}
+		input{
+			width: 80%;
+			margin-bottom: 5px;
+		}
+		a{
+		    float: right;
+		    margin-right: 52px; 
+			padding: 5px;
+			background-color: @colorYellow;
+			border: 1px solid darken(@colorYellow, 10%); 
+			.tb-radius(@borderRadius);
+    		.bb-radius(@borderRadius);
+    		font-size: @basicFotntSize;
+			&:hover{
+				 border: 1px solid darken(@colorBlue, 10%); 
+				 background-color: @colorBlue;
+			}
+		}
+	}
+	.account{
+		margin-top: 30px;
+		height: 100%;
+		font-size: 15px;
+		width: 15%;
+		border-right: 1px solid darken(#cafffe, 20%);
+		li{
+			list-style: none
+		}
+	}
+	.Quick-links{
+		margin-top: 30px;
+	}
+	.follow {
+		margin-top: 30px; 
+		width: 20%;
+		padding-left: 20px;
+		border-left: 1px solid darken(#cafffe, 20%);
+		.menu {
+			display: flex;
+			justify-content: space-between;
+			a {
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				&:hover{
+					-webkit-filter: hue-rotate(360deg) opacity(0.5);
+				}
+			}
+			.wifi {
+				background-image: url(imgs/rss.png);
+			}
+			.twitter {
+				background-image: url(imgs/twitter.png);
+			}
+			.facebook {
+				background-image: url(imgs/facebook.png);
+			}
+			.skipe {
+				background-image: url(imgs/skype.png);
+			}
+		}
+	}				
+	.copyright{
+		width: 100%;
+		margin-top: 30px;
+		color: @colorBorder;
+		p{
+			text-align: center;
+			font-size: @basicFotntSize;
+		}
+	}
+}
+
+	
